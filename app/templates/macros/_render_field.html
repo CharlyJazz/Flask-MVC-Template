@@ -1,0 +1,14 @@
+{% macro render_field(field) %}
+    <td> {{ field.label}}
+    <dd> {{  field(**kwargs)|safe }}
+      {% if field.errors %}
+      <div class="flex-container flex">
+        {% for error in field.errors %}
+          <div class="flex-item">
+           <div class="flex-item error" ><span class="label label-danger"><i class="icon-fire danger"> </i> {{ error }}</span></div>
+          </div>
+
+        {% endfor %}
+    </div>
+        {% endif %}
+{% endmacro %}

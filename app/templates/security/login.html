@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+
+
+{% block content %}
+  <div class="container">
+      <div class="row-content">
+          <br>
+              <div class="col-md-4">
+                  <h2 class="h2">No te has registrado?</h2>
+                  <button class="btn btn-success btn-raised"><a href="{{url_for('security.register')}}">Unete</a></button>
+              </div>
+      <form class="form-horizontal" action="{{ url_for_security('login') }}" method="POST">
+          <fieldset>
+              {{ login_user_form.hidden_tag() }}
+
+            <legend class="h2">Login</legend>
+               <div class="form-group   label-floating">
+                {{ render_field_with_errors(login_user_form.email,  class_="form-control") }}
+              </div>
+
+              <div class="form-group  label-floating">
+              {{ render_field_with_errors(login_user_form.password,  class_="form-control") }}
+              </div>
+
+              <div class="checkbox ">
+                <label>
+                    {{ login_user_form.remember(class_="-control") }} <span>Remember?</span>
+                </label>
+              </div>
+              {{  login_user_form.next }}
+              <br>
+              {{ login_user_form.submit(class_="btn btn-default" ) }}
+        </fieldset>
+      </form>
+    </div>
+ </div>
+
+  {% endblock %}
