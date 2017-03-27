@@ -17,15 +17,18 @@ To easily have login, logout, recovery password, and other features. Flask MVC T
 TODO:
 -----
 - Implement:
-    - Flask-Script
-    - Flask-Migrate
-    - Flask-Uploads
-        - Create one instance of this in each blueprint
-    - Flask-Social
-        - Facebook
-        - Twitter
-        - Google
-- Create command to create an admin
-    - Implement code logic the before_first_request() and delete this
-- Create server script
-- Create easy way for Unit Test and Front-End Test
+    * [x] Flask-Script
+        * [x] Admin command
+        * [x] Create app command
+    * [ ] Flask-Migrate
+    * [ ] Flask-Uploads
+        * [ ] Create one instance of this in each blueprint
+    * [ ] Flask-Social
+        * [ ] Facebook
+        * [ ] Twitter
+        * [ ] Google
+* [ ] - Create command to create an admin
+    * [ ] - Implement code logic the before_first_request() and delete this
+* [ ] - Create server script
+* [ ] - Create easy way for Unit Test and Front-End Test
+* [ ] - Implement cool and easy use Flash Messages
