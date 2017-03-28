@@ -114,3 +114,5 @@ flask-mvc/
 /app/static/vendor/
 /app/static/js/libs.js
 /app/static/css/min.css
+/migrations/
+/app.db

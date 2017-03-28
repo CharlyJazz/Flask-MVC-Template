@@ -36,3 +36,7 @@ SECURITY_REGISTER_USER_TEMPLATE = 'security/register.html'
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(os.path.join(BASE_DIR, 'app.db'))
 SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+#Flask-Script
+
+APP_FOLDER = "app/"
