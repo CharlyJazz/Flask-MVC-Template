@@ -40,3 +40,12 @@ SQLALCHEMY_TRACK_MODIFICATIONS = True
 #Flask-Script
 
 APP_FOLDER = "app/"
+
+#Flask-Uploads
+
+UPLOADED_RESTAURANT_DEST  = APP_FOLDER + "static/img/restaurant"
+UPLOADED_RESTAURANT_URL = 'http://0.0.0.0:8000/restaurant/upload'
+UPLOADED_FOOD_DEST = APP_FOLDER + "static/img/food"
+UPLOADED_FOOD_URL = 'http://0.0.0.0:8000/food/upload'
+UPLOADED_USER_DEST = APP_FOLDER + "static/img/user"
+UPLOADED_USER_URL = 'http://0.0.0.0:8000/user/upload'

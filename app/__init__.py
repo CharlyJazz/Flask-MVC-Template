@@ -4,13 +4,17 @@ from flask import Flask, render_template
 from flask_assets import Environment
 from flask_wtf import CSRFProtect
 from flask_security import Security, SQLAlchemyUserDatastore, utils
-from sqlalchemy_utils import database_exists, create_database
 from flask.ext.via import Via
+from flask_uploads import configure_uploads
+
+from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import create_engine
 
 from assets import create_assets
 from models import db, FinalUser, Role
 from user.forms import SecurityRegisterForm
+
+
 from admin import create_security_admin
 
 import os.path
@@ -27,6 +31,14 @@ create_assets(assets)
 
 via = Via()
 via.init_app(app)
+
+# Code for desmostration the flask upload in several models - - - -
+
+from user import user_photo
+from restaurant import restaurant_photo
+from food import food_photo
+
+configure_uploads(app, (restaurant_photo, food_photo, user_photo))
 
 with app.app_context():
     db.init_app(app)

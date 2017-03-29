@@ -20,7 +20,7 @@ TODO:
 * [x] Flask-Script
     * [x] Admin command
     * [x] Create app command
-* [ ] Flask-Migrate
+* [x] Flask-Migrate
 * [ ] Flask-Uploads
     * [ ] Create one instance of this in each blueprint
 * [ ] Flask-Social
@@ -32,3 +32,5 @@ TODO:
 * [ ]  Create server script
 * [ ]  Create easy way for Unit Test and Front-End Test
 * [ ]  Implement cool and easy use Flash Messages
+* [ ]  Create utils macros
+* [ ]  Create filters in filter.py and register this
