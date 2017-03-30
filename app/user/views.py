@@ -19,7 +19,7 @@ class UserUploadView(MethodView):
             filename = user_photo.save(request.files['profile_photo'])
             image = FinalUserImage(user_id=current_user.id,
                                    image_filename=filename,
-                                   image_url=app.config['UPLOADED_USER_DEST'] + filename)
+                                   image_url=app.config['UPLOADED_USER_DEST'][11:] + "/" + filename)
             db.session.add(image)
             db.session.commit()
             return redirect(url_for('user.profile'))

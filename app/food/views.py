@@ -19,7 +19,7 @@ class FoodUploadView(MethodView):
             filename = food_photo.save(request.files['food_photo'])
             image = FinalUserImage(user_id=current_user.id,
                                    image_filename=filename,
-                                   image_url=app.config['UPLOADED_FOOD_DEST'] + filename)
+                                   image_url=app.config['UPLOADED_FOOD_DEST'][11:] + "/" + filename)
             db.session.add(image)
             db.session.commit()
             return redirect(url_for('food.profile'))
