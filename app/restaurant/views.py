@@ -1,8 +1,26 @@
-from flask import jsonify, request, url_for, g, redirect, render_template, flash, make_response, Blueprint
+from flask import request, url_for, redirect, render_template, session
+from flask.views import MethodView
+from ..models import FinalUserImage, db
+from forms import RestaurantImageForm
+from flask_security import current_user
+from . import restaurant_photo
+from .. import app
 
+class ProfileView(MethodView):
+    def get(self):
+        return render_template('restaurant/profile.html')
 
-def profile():
-    return render_template('restaurant/profile.html')
+class RestaurantUploadView(MethodView):
+    def get(self):
+        return render_template('restaurant/upload.html', form=RestaurantImageForm())
 
-def upload():
-    pass
+    def post(self):
+        if 'restaurant_photo' in request.files:
+            filename = restaurant_photo.save(request.files['restaurant_photo'])
+            image = FinalUserImage(user_id=current_user.id,
+                                             image_filename=filename,
+                                             image_url=app.config['UPLOADED_RESTAURANT_DEST'] + filename)
+            db.session.add(image)
+            db.session.commit()
+            return redirect(url_for('restaurant.profile'))
+        return redirect(url_for('restaurant.profile'))

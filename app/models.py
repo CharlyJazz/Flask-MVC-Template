@@ -44,33 +44,11 @@ class FinalUser(db.Model, UserMixin):
                             backref=db.backref('users', lazy='dynamic'))
 
 
-# Code for desmostration the flask upload in several models
+# Code for desmostration the flask upload
 
 
 class FinalUserImage(BaseModel):
     __tablename__= 'final_user_image'
     user_id =  db.Column(db.Integer, db.ForeignKey('final_user.id'))
-    image_filename = db.Column(db.String, default=None, nullable=True)
-    image_url = db.Column(db.String, default=None, nullable=True)
-
-
-class Restaurant(BaseModel):
-    name = db.Column(db.String(80), unique=True)
-    description = db.Column(db.String(120), unique=True)
-
-
-class RestaurantImage(BaseModel):
-    restaurant_id =  db.Column(db.Integer, db.ForeignKey('restaurant.id'))
-    image_filename = db.Column(db.String, default=None, nullable=True)
-    image_url = db.Column(db.String, default=None, nullable=True)
-
-
-class Food(BaseModel):
-    name = db.Column(db.String(80), unique=True)
-    description = db.Column(db.String(120), unique=True)
-
-
-class FoodImage(BaseModel):
-    restaurant_id =  db.Column(db.Integer, db.ForeignKey('food.id'))
     image_filename = db.Column(db.String, default=None, nullable=True)
     image_url = db.Column(db.String, default=None, nullable=True)

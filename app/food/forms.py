@@ -5,5 +5,5 @@ from . import food_photo
 # Form for demo of flask-upload
 
 class FoodImageForm(Form):
-    profile_photo = FileField('', validators=[FileRequired(), FileAllowed(food_photo, 'Images only!')])
+    food_photo = FileField('', validators=[FileRequired(), FileAllowed(food_photo, 'Images only!')])
     submit = SubmitField('Submit')

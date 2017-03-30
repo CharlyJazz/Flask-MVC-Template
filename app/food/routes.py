@@ -1,7 +1,7 @@
-from flask.ext.via.routers import default
+from flask.ext.via.routers.default import Pluggable
 from views import *
 
 routes = [
-    default.Functional('/food', profile),
-    default.Functional('/food/upload', upload)
+    Pluggable('/food/', ProfileView, 'profile'),
+    Pluggable('/food/upload', FoodUploadView, 'upload')
 ]

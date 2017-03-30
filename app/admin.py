@@ -28,5 +28,5 @@ class _Admin(Admin, UserAdmin):
 
 def create_security_admin(app, path):
     admin = _Admin(app, name='Flask MVC Template', template_mode='bootstrap3')
-    admin.add_model_views([FinalUser, Role])
+    admin.add_model_views([FinalUser, Role, FinalUserImage])
     admin.add_view(MyFileAdmin(path, '/static/', name='Static Files'))

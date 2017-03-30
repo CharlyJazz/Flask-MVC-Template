@@ -106,6 +106,14 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 
+app/static/img/food/*
+!app/static/img/food/.gitkeep
+app/static/img/restaurant/*
+!app/static/img/restaurant/.gitkeep
+app/static/img/user/*
+!app/static/img/user/.gitkeep
+
+
 !app/static/css/.gitkeep
 !app/static/js/.gitkeep
 
