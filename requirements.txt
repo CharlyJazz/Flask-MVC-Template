@@ -1,4 +1,5 @@
 alembic==0.9.1
+aniso8601==1.2.0
 appdirs==1.4.3
 blinker==1.4
 click==6.7
@@ -12,13 +13,15 @@ Flask-Mail==0.9.1
 Flask-Migrate==2.0.3
 Flask-OAuth==0.12
 Flask-Principal==0.4.0
+Flask-RESTful==0.3.5
 Flask-Script==2.0.5
 Flask-Security==1.7.5
-Flask-Social==1.6.2
 Flask-SQLAlchemy==2.2
 Flask-Uploads==0.2.1
 Flask-Via==2015.1.1
 Flask-WTF==0.14.2
+gevent==1.2.1
+greenlet==0.4.12
 httplib2==0.10.3
 itsdangerous==0.24
 Jinja2==2.9.5
@@ -29,7 +32,11 @@ packaging==16.8
 passlib==1.7.1
 pkg-resources==0.0.0
 pyparsing==2.2.0
+python-dateutil==2.6.0
 python-editor==1.0.3
+pytz==2016.10
+rauth==0.7.3
+requests==2.13.0
 rjsmin==1.0.12
 simplejson==3.10.0
 six==1.10.0

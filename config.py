@@ -49,3 +49,20 @@ UPLOADED_FOOD_DEST = APP_FOLDER + "static/img/food"
 UPLOADED_FOOD_URL = 'http://0.0.0.0:8000/food/upload'
 UPLOADED_USER_DEST = APP_FOLDER + "static/img/user"
 UPLOADED_USER_URL = 'http://0.0.0.0:8000/user/upload'
+
+#OAUTH LOGIN
+
+OAUTH_CREDENTIALS = {
+    'facebook': {
+        'id': '638111216387395',
+        'secret': 'c374a53decb75c2043ccd0e4a0eb8c28'
+    },
+    'twitter': {
+        'id': 't6nK168ytZ7w7Rj4uJD3bXi5L',
+        'secret': 'L537M7QT810Qe0zMCB1od3bKe6ljx2nyDkxxF49gaHtSJrmHA1'
+    },
+    'google': {
+        'id': '1080912678595-adm52eo5f78jru65923qia22itfasa7d.apps.googleusercontent.com',
+        'secret': '1vq9zxw2rMiBtUVeLlAlNOVw'
+    }
+}

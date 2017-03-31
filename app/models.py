@@ -29,6 +29,7 @@ class Role(db.Model, RoleMixin):
 
 class FinalUser(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+    social_id = db.Column(db.String(64), nullable=True, unique=True)
     email = db.Column(db.String(255), unique=True)
     username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(255))

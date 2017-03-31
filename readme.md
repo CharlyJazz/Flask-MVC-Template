@@ -41,12 +41,11 @@ TODO:
 * [x] Flask-Migrate
 * [x] Flask-Uploads
     * [x] Create one instance of this in each blueprint
-* [ ] Flask-Social
-    * [ ] Facebook
-    * [ ] Twitter
-    * [ ] Google
+* [x] Oauth
+    * [x] Facebook
+    * [x] Twitter
+    * [x] Google
 * [x]  Create command to create an admin
-    * [x]  Implement code logic the before_first_request() and delete this
 * [ ]  Create server script
 * [ ]  Create easy way for Unit Test and Front-End Test
 * [ ]  Implement cool and easy use Flash Messages

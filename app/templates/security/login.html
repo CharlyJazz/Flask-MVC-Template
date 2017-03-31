@@ -6,9 +6,20 @@
   <div class="container">
       <div class="row-content">
           <br>
-              <div class="col-md-4">
+              <div class="col-md-8">
                   <h2 class="h2">No te has registrado?</h2>
                   <button class="btn btn-success btn-raised"><a href="{{url_for('security.register')}}">Unete</a></button>
+                  <hr>
+                  <h2>Oauth Login</h2>
+                {% if current_user.is_authenticated %}
+                    <h2>Hi, {{ current_user.username }}!</h2>
+                    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+                {% else %}
+                    <h2>I don't know you!</h2>
+                    <p><a href="{{ url_for('user.oauth_authorize', provider='facebook') }}">Login with Facebook</a></p>
+                    <p><a href="{{ url_for('user.oauth_authorize', provider='twitter') }}">Login with Twitter</a></p>
+                    <p><a href="{{ url_for('user.oauth_authorize', provider='google') }}">Login with Google</a></p>
+                {% endif %}
               </div>
       <form class="form-horizontal" action="{{ url_for_security('login') }}" method="POST">
           <fieldset>

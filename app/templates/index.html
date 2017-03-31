@@ -7,6 +7,15 @@
         <h1>Flask MVC Template</h1>
       </div>
       <p class="lead">Flask-MVC Template It is a template with "batteries included" created for the fast development of applications in the microframework flask</p>
+        {% if current_user.is_authenticated %}
+            <h2>Hi, {{ current_user.username }}!</h2>
+            <p><a href="{{ url_for('security.logout') }}">Logout</a></p>
+        {% else %}
+            <h2>I don't know you!</h2>
+            <p><a href="{{ url_for('user.oauth_authorize', provider='facebook') }}">Login with Facebook</a></p>
+            <p><a href="{{ url_for('user.oauth_authorize', provider='twitter') }}">Login with Twitter</a></p>
+            <p><a href="{{ url_for('user.oauth_authorize', provider='google') }}">Login with Google</a></p>
+        {% endif %}
 </div>
 
 

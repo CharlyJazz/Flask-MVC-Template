@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import Flask, render_template
+from flask import Flask, render_template, current_app
 from flask_assets import Environment
 from flask_wtf import CSRFProtect
 from flask_security import Security, SQLAlchemyUserDatastore, utils
@@ -58,25 +58,7 @@ def before_first_request():
     # Create the Roles "admin" and "end-user" -- unless they already exist
     user_datastore.find_or_create_role(name='admin', description='Administrator')
     user_datastore.find_or_create_role(name='end-user', description='End user')
-
-    # Create two Users for testing purposes -- unless they already exists.
-    encrypted_password = utils.encrypt_password('password')
-    if not user_datastore.get_user('someone@example.com'):
-        user_datastore.create_user(username='end_user',
-                                   password=encrypted_password,
-                                   email='someone@example.com')
-    if not user_datastore.get_user('admin@example.com'):
-        user_datastore.create_user(username='admin_user',
-                                   password=encrypted_password,
-                                   email='admin@example.com')
-
     # Commit any database changes; the User and Roles must exist before we can add a Role to the User
-    db.session.commit()
-
-    # Give one User has the "end-user" role, while the other has the "admin" role. (This will have no effect if the
-    # Users already have these Roles.) Again, commit any database changes.
-    user_datastore.add_role_to_user('someone@example.com', 'end-user')
-    user_datastore.add_role_to_user('admin@example.com', 'admin')
     db.session.commit()
 
 @app.route('/', methods=['GET'])
