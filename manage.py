@@ -30,12 +30,13 @@ def createapp():
             with open(os.path.join(folder, file + ".py"), 'w') as temp_file:
                 if i != 4:
                     if file is "routes":
-                        temp_file.write("from flask.ext.via.routers import default\nfrom views import *\n")
+                        temp_file.write("from flask.ext.via.routers.default import Pluggable\nfrom views import *\n")
                     if file is "forms":
                         temp_file.write("from wtforms import *\n")
                     if file is "views":
-                        temp_file.write("from wtforms import from flask import jsonify, request, "
-                                        "url_for, g, redirect, render_template, flash, make_response, Blueprint\n")
+                        temp_file.write("from flask import jsonify, request, "
+                                        "url_for, redirect, render_template, flash, make_response\n"
+                                        "from flask.views import MethodView")
                 else:
                     os.makedirs(folder + "/template/" + path)
 
