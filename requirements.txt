@@ -17,6 +17,7 @@ Flask-RESTful==0.3.5
 Flask-Script==2.0.5
 Flask-Security==1.7.5
 Flask-SQLAlchemy==2.2
+Flask-Testing==0.6.2
 Flask-Uploads==0.2.1
 Flask-Via==2015.1.1
 Flask-WTF==0.14.2

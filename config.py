@@ -9,6 +9,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 TEMPLATES_AUTO_RELOAD = True
 DEBUG = True
 SEND_FILE_MAX_AGE_DEFAULT = 0
+TESTING = True
 
 #Flask-Assets
 

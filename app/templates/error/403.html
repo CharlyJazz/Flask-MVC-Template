@@ -1,0 +1,19 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div style="text-align: center">
+            <h1> 403 Error  {{ title }} </h1>
+            <h3> You do not have sufficient permissions to access this page. </h3>
+            <hr class="intro-divider">
+            <a href="{{ url_for('index') }}" class="btn btn-default btn-lg">
+                Home
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

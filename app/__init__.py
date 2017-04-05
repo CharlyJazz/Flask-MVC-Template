@@ -40,10 +40,6 @@ from food import food_photo
 
 configure_uploads(app, (restaurant_photo, food_photo, user_photo))
 
-with app.app_context():
-    db.init_app(app)
-    db.create_all()
-
 engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 if not database_exists(engine.url):
     create_database(engine.url)
@@ -53,12 +49,12 @@ security = Security(app, user_datastore, register_form=SecurityRegisterForm)
 
 create_security_admin(app=app, path=os.path.join(os.path.dirname(__file__)))
 
-@app.before_first_request
-def before_first_request():
-    # Create the Roles "admin" and "end-user" -- unless they already exist
+with app.app_context():
+    db.init_app(app)
+    db.create_all()
     user_datastore.find_or_create_role(name='admin', description='Administrator')
+    db.session.commit()
     user_datastore.find_or_create_role(name='end-user', description='End user')
-    # Commit any database changes; the User and Roles must exist before we can add a Role to the User
     db.session.commit()
 
 @app.route('/', methods=['GET'])

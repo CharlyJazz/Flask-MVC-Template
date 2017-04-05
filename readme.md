@@ -46,6 +46,7 @@ TODO:
     * [x] Twitter
     * [x] Google
 * [x]  Create command to create an admin
+* [*]  HTTP Tempplates for error handling
 * [ ]  Create server script
 * [ ]  Create easy way for Unit Test and Front-End Test
 * [ ]  Implement cool and easy use Flash Messages
