@@ -31,6 +31,8 @@ Awesome commands for your projects, including the [Flask-Migrate](https://flask-
 - `createadmin`: Create admin user
 - `createapp`: Scaffold new  blueprint folder and register in the file app/routes.py
 
+[Rauth](https://rauth.readthedocs.io/en/latest/)
+Social Login with facebook, google and twitter
 
 TODO:
 -----
@@ -46,7 +48,7 @@ TODO:
     * [x] Twitter
     * [x] Google
 * [x]  Create command to create an admin
-* [*]  HTTP Tempplates for error handling
+* [ ]  HTTP Templates for error handling
 * [ ]  Create server script
 * [ ]  Create easy way for Unit Test and Front-End Test
 * [ ]  Implement cool and easy use Flash Messages
