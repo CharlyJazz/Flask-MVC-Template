@@ -52,7 +52,7 @@ TODO:
     * [x] Facebook
     * [x] Twitter
     * [x] Google
-* [x]  Testing with Flash-Testing
+* [x]  Testing with Flask-Testing
     * [x] Faker for generate forged data
     * [x] Front end test with Selenium webdriver
     * [x] Back end test
