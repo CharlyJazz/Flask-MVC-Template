@@ -124,4 +124,4 @@ flask-mvc/
 /app/static/css/min.css
 /migrations/
 /app.db
-/unit_test.db
+/testing.db

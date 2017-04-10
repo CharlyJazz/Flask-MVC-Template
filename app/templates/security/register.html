@@ -17,21 +17,21 @@
 
         {{ register_user_form.hidden_tag() }}
         <div class="form-group ">
-            {{ render_field_with_errors(register_user_form.email, class_="form-control") }}
+            {{ render_field_with_errors(register_user_form.email, class_="form-control", id="email") }}
         </div>
         <div class="form-group ">
-        {{ render_field_with_errors(register_user_form.password, class_="form-control") }}
+        {{ render_field_with_errors(register_user_form.password, class_="form-control", id="password") }}
         </div>
         <div class="form-group ">
         {% if register_user_form.password_confirm %}
-                {{ render_field_with_errors(register_user_form.password_confirm, class_="form-control") }}
+                {{ render_field_with_errors(register_user_form.password_confirm, class_="form-control", id="confirm_password") }}
         {% endif %}
         </div>
         <div class="form-group ">
-        {{ render_field_with_errors(register_user_form.username, class_="form-control") }}
+        {{ render_field_with_errors(register_user_form.username, class_="form-control", id="username") }}
         </div>
-                <hr>
-        {{ register_user_form.submit(class_="btn btn-default")}}
+        <hr>
+        {{ register_user_form.submit(class_="btn btn-default btn-submit")}}
             </fieldset>
             <br>
       </form>

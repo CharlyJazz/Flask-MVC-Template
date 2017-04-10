@@ -51,7 +51,6 @@ def create_app(config_name):
     if not database_exists(engine.url):
         create_database(engine.url)
 
-    # user_datastore = SQLAlchemyUserDatastore(db, FinalUser, Role)
     security = Security(app, user_datastore, register_form=SecurityRegisterForm)
 
     create_security_admin(app=app, path=os.path.join(os.path.dirname(__file__)))

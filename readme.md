@@ -34,6 +34,11 @@ Awesome commands for your projects, including the [Flask-Migrate](https://flask-
 [Rauth](https://rauth.readthedocs.io/en/latest/)
 Social Login with facebook, google and twitter
 
+[Flask-Testing](https://pythonhosted.org/Flask-Testing/)
+Simple test unit with [Faker](https://github.com/joke2k/faker) for generate forget data and unittest
+And Selenium webdriver for front end testing
+- `python -m unittest discover -p <file.py>`: Test the specific file
+
 TODO:
 -----
 
@@ -47,11 +52,15 @@ TODO:
     * [x] Facebook
     * [x] Twitter
     * [x] Google
+* [x]  Testing with Flas-Testing
+    * [x] Faker for generate forged data
+    * [x] Front end test with Selenium webdriver
+    * [x] Back end test
 * [x]  Create command to create an admin
 * [x]  Factory App
-* [ ]  HTTP Templates for error handling
-* [ ]  Create server script
-* [ ]  Create easy way for Unit Test and Front-End Test
+* [x]  HTTP Templates for error handling
+* [x]  Create easy way for Unit Test and Front-End Test
 * [ ]  Implement cool and easy use Flash Messages
 * [ ]  Create utils macros
 * [ ]  Create filters in filter.py and register this
+* [ ]  Create server script

@@ -1,16 +1,15 @@
 import os
 import random, string
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 class DevelopmentConfig(object):
     # Flask
 
     SECRET_KEY = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
-    BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     TEMPLATES_AUTO_RELOAD = True
     DEBUG = True
     SEND_FILE_MAX_AGE_DEFAULT = 0
-    TESTING = True
 
     #Flask-Assets
 
@@ -69,6 +68,11 @@ class DevelopmentConfig(object):
         }
     }
 
+class TestingConfig(DevelopmentConfig):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(os.path.join(BASE_DIR, 'testing.db'))
+
 app_config = {
-    'development': DevelopmentConfig
+    'development': DevelopmentConfig,
+    'testing': TestingConfig
 }
