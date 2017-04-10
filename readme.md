@@ -48,6 +48,7 @@ TODO:
     * [x] Twitter
     * [x] Google
 * [x]  Create command to create an admin
+* [x]  Factory App
 * [ ]  HTTP Templates for error handling
 * [ ]  Create server script
 * [ ]  Create easy way for Unit Test and Front-End Test

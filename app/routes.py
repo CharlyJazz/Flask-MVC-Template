@@ -1,4 +1,4 @@
-from flask.ext.via.routers.default import Blueprint
+from flask_via.routers.default import Blueprint
 
 routes = [
     Blueprint('user', 'app.user', template_folder="templates"),

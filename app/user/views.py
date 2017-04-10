@@ -1,4 +1,4 @@
-from flask import request, url_for, redirect, render_template, flash
+from flask import request, url_for, redirect, render_template, flash, current_app
 from flask.views import MethodView
 from flask_security.utils import login_user
 from flask_security import current_user
@@ -9,7 +9,7 @@ from oauth import OAuthSignIn
 
 from ..models import FinalUser, FinalUserImage, Role, db
 from . import user_photo
-from .. import app
+# from .. import app
 
 user_datastore = SQLAlchemyUserDatastore(db, FinalUser, Role)
 
@@ -26,7 +26,7 @@ class UserUploadView(MethodView):
             filename = user_photo.save(request.files['profile_photo'])
             image = FinalUserImage(user_id=current_user.id,
                                    image_filename=filename,
-                                   image_url=app.config['UPLOADED_USER_DEST'][11:] + "/" + filename)
+                                   image_url=current_app.config['UPLOADED_USER_DEST'][11:] + "/" + filename)
             db.session.add(image)
             db.session.commit()
             return redirect(url_for('user.profile'))

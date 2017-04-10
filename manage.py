@@ -1,11 +1,16 @@
 from colorama import Fore, init
+
+from flask import current_app
 from flask_script import Manager, prompt
 from flask_migrate import Migrate, MigrateCommand
-from app import app, db, FinalUser, user_datastore
+from app import create_app, db, FinalUser, user_datastore
+from config import DevelopmentConfig
 from flask_security import utils
 
 import re
 import os
+
+app = create_app('development')
 
 migrate = Migrate(app, db)
 manager = Manager(app)
@@ -20,7 +25,7 @@ def createapp():
         return
     except ValueError:
         pass
-    folder = app.config['APP_FOLDER'] + path
+    folder = current_app.config['APP_FOLDER'] + path
     register_blueprint_str = "Blueprint('{0}', 'app.{0}', template_folder='templates')".format(path.lower())
     if not os.path.exists(folder):
         # Scaffold new blueprint
@@ -30,22 +35,22 @@ def createapp():
             with open(os.path.join(folder, file + ".py"), 'w') as temp_file:
                 if i != 4:
                     if file is "routes":
-                        temp_file.write("from flask.ext.via.routers.default import Pluggable\nfrom views import *\n")
+                        temp_file.write("from flask_via.routers.default import Pluggable\nfrom views import *\n")
                     if file is "forms":
                         temp_file.write("from wtforms import *\n")
                     if file is "views":
                         temp_file.write("from flask import jsonify, request, "
-                                        "url_for, redirect, render_template, flash, make_response\n"
+                                        "url_for, redirect, current_app, render_template, flash, make_response\n"
                                         "from flask.views import MethodView")
                 else:
                     os.makedirs(folder + "/template/" + path)
 
         # Register blueprint in app/route.py
-        route_path = os.path.join(app.config['APP_FOLDER'], "routes.py")
+        route_path = os.path.join(current_app.config['APP_FOLDER'], "routes.py")
         with open(route_path, "r") as old_routes:
             data = old_routes.readlines()
             data[-2] = data[-2] + "    " + register_blueprint_str + ',\n'
-            os.remove(os.path.join(app.config['APP_FOLDER'], "routes.py"))
+            os.remove(os.path.join(current_app.config['APP_FOLDER'], "routes.py"))
 
         with open(route_path, 'w') as new_routes:
             new_routes.writelines(data)
