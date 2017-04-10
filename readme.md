@@ -52,14 +52,14 @@ TODO:
     * [x] Facebook
     * [x] Twitter
     * [x] Google
-* [x]  Testing with Flas-Testing
+* [x]  Testing with Flash-Testing
     * [x] Faker for generate forged data
     * [x] Front end test with Selenium webdriver
     * [x] Back end test
 * [x]  Create command to create an admin
 * [x]  Factory App
 * [x]  HTTP Templates for error handling
-* [x]  Create easy way for Unit Test and Front-End Test
+* [x]  Create easy way for Unit Test
 * [ ]  Implement cool and easy use Flash Messages
 * [ ]  Create utils macros
 * [ ]  Create filters in filter.py and register this
