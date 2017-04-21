@@ -9,6 +9,7 @@ from flask import url_for
 from flask_testing import LiveServerTestCase
 
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 from app import create_app, user_datastore
 from app.models import *
@@ -18,7 +19,6 @@ fake = Factory.create()
 test_admin_email, test_admin_username, test_admin_password = fake.email(), fake.name(), Provider.password(),
 test_user_final_email, test_user_final_username, test_user_final_password = fake.email(), fake.name(), Provider.password()
 
-
 class CreateObjects(object):
 
     def login_admin_user(self):
@@ -26,14 +26,12 @@ class CreateObjects(object):
         self.driver.get(login_link)
         self.driver.find_element_by_id("email").send_keys(test_admin_email)
         self.driver.find_element_by_id("password").send_keys(test_admin_password)
-        self.driver.find_element_by_id("submit").click()
 
     def login_final_user(self):
         login_link = self.get_server_url() + url_for('security.login')
         self.driver.get(login_link)
         self.driver.find_element_by_id("email").send_keys(test_user_final_email)
         self.driver.find_element_by_id("password").send_keys(test_user_final_password)
-        self.driver.find_element_by_id("submit").click()
 
 
 class TestBase(LiveServerTestCase):
@@ -72,20 +70,10 @@ class TestBase(LiveServerTestCase):
     def tearDown(self):
         self.driver.quit()
 
-    def test_server_is_up_and_running(self):
-        response = urllib2.urlopen(self.get_server_url())
-        self.assertEqual(response.code, 200)
-
 
 class TestRegistration(TestBase):
 
     def test_registration(self):
-        """
-        Test that a user can create an account using the registration form
-        if all fields are filled out correctly, and that they will be
-        redirected to the login page
-        """
-
         # Click register menu link
         self.driver.find_element_by_link_text("Register").click()
         time.sleep(1)
@@ -101,6 +89,57 @@ class TestRegistration(TestBase):
 
         welcome_message = self.driver.find_element_by_id("welcome-message").text
         assert "Hi, {0}!".format(_username) in welcome_message
+
+
+class TestLogin(TestBase, CreateObjects):
+
+    def test_login_final_user(self):
+        self.driver.find_element_by_link_text("Login").click()
+        self.login_final_user()
+        self.driver.find_element_by_css_selector('.btn-submit').click()
+
+        time.sleep(1)
+
+        welcome_message = self.driver.find_element_by_id("welcome-message").text
+        assert "Hi, {0}!".format(test_user_final_username) in welcome_message
+
+    def test_login_admin_user(self):
+        self.driver.find_element_by_link_text("Login").click()
+        self.login_admin_user()
+        self.driver.find_element_by_css_selector('.btn-submit').click()
+
+        time.sleep(1)
+
+        welcome_message = self.driver.find_element_by_id("welcome-message").text
+        assert "Hi, {0}!".format(test_admin_username) in welcome_message
+
+class TestAdminSecurity(TestBase, CreateObjects):
+    def check_exists_by_xpath(self, xpath):
+        try:
+            self.driver.find_element_by_xpath(xpath)
+        except NoSuchElementException:
+            return False
+        return True
+
+    def test_final_user_access_admin(self):
+        self.login_final_user()
+        self.driver.find_element_by_css_selector('.btn-submit').click()
+
+        time.sleep(1)
+
+        self.driver.get(self.get_server_url() + url_for('admin.index'))
+        self.assertEqual(self.check_exists_by_xpath('//a[text()="Final User"]'), False)
+
+    def test_admin_user_access_admin(self):
+        self.login_admin_user()
+        self.driver.find_element_by_css_selector('.btn-submit').click()
+
+        time.sleep(1)
+
+        self.driver.get(self.get_server_url() + url_for('admin.index'))
+        time.sleep(1)
+        self.assertEqual(self.check_exists_by_xpath('//a[text()="Final User"]'), True)
+
 
 if __name__ == '__main__':
     unittest.main()

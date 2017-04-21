@@ -27,11 +27,11 @@
 
             <legend class="h2">Login</legend>
                <div class="form-group   label-floating">
-                {{ render_field_with_errors(login_user_form.email,  class_="form-control") }}
+                {{ render_field_with_errors(login_user_form.email,  id="email", class_="form-control") }}
               </div>
 
               <div class="form-group  label-floating">
-              {{ render_field_with_errors(login_user_form.password,  class_="form-control") }}
+              {{ render_field_with_errors(login_user_form.password,  id="password", class_="form-control") }}
               </div>
 
               <div class="checkbox ">
@@ -41,7 +41,7 @@
               </div>
               {{  login_user_form.next }}
               <br>
-              {{ login_user_form.submit(class_="btn btn-default" ) }}
+              {{ login_user_form.submit(class_="btn btn-default btn-submit" ) }}
         </fieldset>
       </form>
     </div>
