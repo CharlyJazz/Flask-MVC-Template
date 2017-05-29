@@ -2,10 +2,6 @@ Flask-MVC Template
 ------------------
 Flask-MVC Template It is a template with "batteries included" created for the fast development of applications in the microframework flask
 
-
-Status: **building** :construction:
-
-
 Feature:
 --------
 [Flask-Via](http://flask-via.soon.build/en/latest/):
@@ -60,7 +56,3 @@ TODO:
 * [x]  Factory App
 * [x]  HTTP Templates for error handling
 * [x]  Create easy way for Unit Test
-* [ ]  Implement cool and easy use Flash Messages
-* [ ]  Create utils macros
-* [ ]  Create filters in filter.py and register this
-* [ ]  Create server script

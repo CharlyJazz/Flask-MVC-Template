@@ -82,5 +82,3 @@ def create_app(config_name):
         return render_template('error/500.html', title='Server Error'), 500
 
     return app
-
-# from app import *

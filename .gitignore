@@ -118,10 +118,11 @@ app/static/img/user/*
 !app/static/js/.gitkeep
 
 .idea/
-flask-mvc/
+env/
 /app/static/vendor/
 /app/static/js/libs.js
 /app/static/css/min.css
 /migrations/
 /app.db
 /testing.db
+.idea/
