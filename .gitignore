@@ -118,6 +118,7 @@ app/static/img/user/*
 !app/static/js/.gitkeep
 
 .idea/
+.vs
 env/
 /app/static/vendor/
 /app/static/js/libs.js
