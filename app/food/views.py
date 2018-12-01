@@ -1,7 +1,7 @@
 from flask import request, url_for, redirect, render_template, current_app
 from flask.views import MethodView
 from ..models import FinalUserImage, db
-from forms import FoodImageForm
+from .forms import FoodImageForm
 from flask_security import current_user
 from . import food_photo
 # from .. import app

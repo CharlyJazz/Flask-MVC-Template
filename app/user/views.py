@@ -4,8 +4,8 @@ from flask_security.utils import login_user
 from flask_security import current_user
 from flask_security.datastore import SQLAlchemyUserDatastore
 
-from forms import UserImageForm
-from oauth import OAuthSignIn
+from .forms import UserImageForm
+from .oauth import OAuthSignIn
 
 from ..models import FinalUser, FinalUserImage, Role, db
 from . import user_photo
@@ -56,5 +56,5 @@ class OauthCallback(MethodView):
             user_datastore.add_role_to_user(email, 'user')
             db.session.commit()
         login_user(user)
-        print current_user
+        print(current_user)
         return redirect(url_for('index'))

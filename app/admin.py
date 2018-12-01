@@ -1,8 +1,8 @@
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.contrib.fileadmin import FileAdmin
-from models import *
 from flask_security import current_user
+from .models import *
 
 # https://github.com/sasaporta/flask-security-admin-example/blob/master/main.py
 

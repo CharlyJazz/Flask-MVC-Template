@@ -6,7 +6,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 class DevelopmentConfig(object):
     # Flask
 
-    SECRET_KEY = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
+    SECRET_KEY = 'SECRET_KEY'
     TEMPLATES_AUTO_RELOAD = True
     DEBUG = True
     SEND_FILE_MAX_AGE_DEFAULT = 0

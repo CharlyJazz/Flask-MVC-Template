@@ -57,7 +57,7 @@ class GoogleSignIn(OAuthSignIn):
         if 'code' not in request.args :
             return None, None, None, None
         code = request.args['code']
-        print 'code -> ', code
+        print('code -> ', code)
 
         payload = {
          'grant_type': 'authorization_code',
@@ -67,11 +67,11 @@ class GoogleSignIn(OAuthSignIn):
         }
         access_token = self.service.get_access_token(decoder=json.loads, data=payload)
 
-        print 'access_token ->', access_token
+        print('access_token ->', access_token)
 
         oauth_session = self.service.get_session(access_token)
         me = oauth_session.get('userinfo').json()
-        print me
+        print(me)
         social_id = 'google$' + me.get('id')
         username = me.get('email').split('@')[0]
         # picture = me.get('picture')

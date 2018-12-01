@@ -10,13 +10,12 @@ from flask_uploads import configure_uploads
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import create_engine
 
-from assets import create_assets
-from models import db, FinalUser, Role
-from user.forms import SecurityRegisterForm
+from .assets import create_assets
+from .models import db, FinalUser, Role
+from .user.forms import SecurityRegisterForm
+from .admin import create_security_admin
 
 from config import app_config
-
-from admin import create_security_admin
 
 import os.path
 
@@ -41,9 +40,9 @@ def create_app(config_name):
 
     # Code for desmostration the flask upload in several models - - - -
 
-    from user import user_photo
-    from restaurant import restaurant_photo
-    from food import food_photo
+    from .user import user_photo
+    from .restaurant import restaurant_photo
+    from .food import food_photo
 
     configure_uploads(app, (restaurant_photo, food_photo, user_photo))
 
