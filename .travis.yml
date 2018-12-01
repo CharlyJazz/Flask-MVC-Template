@@ -22,5 +22,4 @@ before_script:
 script:
   - whereis google-chrome-stable
   - whereis chromedriver
-  - python -m unittest tests/test_back_end.py
-  - python -m unittest tests/test_front_end.py
+  - python -m unittest discover tests/
