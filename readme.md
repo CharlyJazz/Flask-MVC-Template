@@ -1,5 +1,7 @@
 Flask-MVC Template
 ------------------
+[![Build Status](https://travis-ci.org/CharlyJazz/Flask-MVC-Template.svg?branch=master)](https://travis-ci.org/CharlyJazz/Flask-MVC-Template)
+
 Flask-MVC Template It is a template with "batteries included" created for the fast development of applications in the microframework flask
 
 Feature:
