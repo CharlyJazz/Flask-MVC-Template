@@ -52,8 +52,10 @@ class TestBase(LiveServerTestCase):
     def setUp(self):
         from selenium.webdriver.chrome.options import Options
         chrome_options = Options()
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-setuid-sandbox")
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--disable-setuid-sandbox')
 
         """Setup the test driver and create test users"""
         self.driver = webdriver.Chrome(chrome_options=chrome_options)
