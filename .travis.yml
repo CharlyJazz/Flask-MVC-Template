@@ -1,4 +1,5 @@
 language: python
+sudo: required
 addons:
   chrome: stable
 python:
@@ -9,6 +10,16 @@ python:
 cache: pip
 install:
   - pip install -r requirements.txt
+before_script:
+  - sudo apt-get install xvfb libxi6 libgconf-2-4
+  - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - sudo cp chromedriver /bin/
+  - sudo mv -f chromedriver /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
 script:
+  - whereis google-chrome-stable
+  - whereis chromedriver
   - python -m unittest tests/test_back_end.py
   - python -m unittest tests/test_front_end.py
