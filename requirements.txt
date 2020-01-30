@@ -39,7 +39,7 @@ pyparsing==2.2.0
 python-dateutil==2.6.0
 python-editor==1.0.4
 rauth==0.7.3
-requests==2.16.5
+requests==2.20.0
 selenium==3.4.2
 six==1.10.0
 SQLAlchemy==1.1.10
