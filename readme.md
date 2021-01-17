@@ -59,6 +59,10 @@ TODO:
 * [x]  HTTP Templates for error handling
 * [x]  Create easy way for Unit Test
 
+## :warning: Be carefull
+
+Before use this for your projects keep in mind that this project is quite old, and it is preferable to create one with more modern tools and libraries. This project is useful if you want to read the source code and learn a little about the use of Flask on monolithic architectures.
+
 ## New version.
 
 Since a lot of extensions of flask are outdated and bugged. We going write features with native flask code, add more features and make the project more clean and easy to use and scale. 
