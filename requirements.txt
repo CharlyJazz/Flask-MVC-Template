@@ -26,7 +26,7 @@ idna==2.5
 ipaddress==1.0.18
 isort==4.3.21
 itsdangerous==0.24
-Jinja2==2.9.6
+Jinja2==2.11.3
 lazy-object-proxy==1.4.3
 Mako==1.1.0
 MarkupSafe==1.0
