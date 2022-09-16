@@ -28,7 +28,7 @@ isort==4.3.21
 itsdangerous==0.24
 Jinja2==2.9.6
 lazy-object-proxy==1.4.3
-Mako==1.1.0
+Mako==1.2.2
 MarkupSafe==1.0
 mccabe==0.6.1
 packaging==16.8
