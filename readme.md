@@ -69,22 +69,3 @@ Since a lot of extensions of flask are outdated and bugged. We going write featu
 
 [Issue to track progress](https://github.com/CharlyJazz/Flask-MVC-Template/issues/18)
 
-
-
-**REST API:**
-
-- [ ] Endpoints
-    - [ ] JWT with RSA2048
-    - [ ] Login
-    - [ ] Protected endpoint for admin
-    - [ ] All users non-protected view
-- [ ] API Documentation with [this](https://github.com/CharlyJazz/API-REST-Documentation-Generator) as npm package, more pretty than Swagger
-
-**GRAPHQL API:**
-
-- [ ] Endpoints
-    - [ ] JWT with RSA2048
-    - [ ] Login
-    - [ ] Protected endpoint for admin
-    - [ ] All users non-protected view
-- [ ] API Documentation with ```graphiql```
