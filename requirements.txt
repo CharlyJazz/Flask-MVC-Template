@@ -3,7 +3,7 @@ appdirs==1.4.3
 astroid==2.3.2
 autopep8==1.4.4
 blinker==1.4
-certifi==2017.4.17
+certifi==2022.12.7
 chardet==3.0.3
 click==6.7
 colorama==0.4.1
